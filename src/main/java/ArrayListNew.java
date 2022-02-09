@@ -68,6 +68,12 @@ public class ArrayListNew<T> implements MyArrayList<T>{
         insertByIndex(index, array, t);
         size++;
     }
+
+    @Override
+    public void addAll(Collection<T> c) {
+
+    }
+
     //Обязательное условие работы алгоритма что компаратор возвращает 1 если (о1 > o2)
     // и -1 если (o1 < o2) , при o1 == o2 возвращаем 0
     @Override
@@ -119,6 +125,25 @@ public class ArrayListNew<T> implements MyArrayList<T>{
 
     @Override
     public boolean delete(int index) {
+        try {
+            T[] newArray = array;
+            array = (T[]) new Object[newArray.length - 1];
+            System.arraycopy(newArray, 0, array, 0, index);
+            System.arraycopy(newArray, index + 1, array, index, newArray.length - index - 1);
+            size--;
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    @Override
+    public boolean delete(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteAll(Collection<T> c) {
         return false;
     }
 
