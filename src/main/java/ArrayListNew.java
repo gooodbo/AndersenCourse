@@ -117,12 +117,14 @@ public class ArrayListNew<T> implements MyArrayList<T>{
         if (newList.size() > array.length) {
             this.array = growAndCopy(array, newList.size());
             for (T t : newList) {
-                add(t);
+                array[size] = t;
+                size++;
             }
             return;
         }
         for (T t : newList) {
-            add(t);
+            array[size] = t;
+            size++;
         }
     }
 
