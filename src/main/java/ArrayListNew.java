@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 
 public class ArrayListNew<T> implements MyArrayList<T>{
@@ -72,7 +73,6 @@ public class ArrayListNew<T> implements MyArrayList<T>{
     @Override
     public void sort(Comparator<T> comparator) {
         quickSort(array, 0, size - 1, comparator);
-
     }
 
     //Алгоритм быстрой сортировки, такой же используется в классе Arrays.sort()
@@ -113,7 +113,7 @@ public class ArrayListNew<T> implements MyArrayList<T>{
     }
 
     @Override
-    public void concat(MyArrayList<T> newList) {
+    public void concat(Collection<T> newList) {
 
     }
 

@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.Comparator;
 
 public interface MyArrayList<T> {
@@ -7,7 +8,7 @@ public interface MyArrayList<T> {
 
     void sort(Comparator<T> comparator);
 
-    void concat(MyArrayList<T> newList);
+    void concat(Collection<T> newList);
 
     boolean delete(int index);
 
