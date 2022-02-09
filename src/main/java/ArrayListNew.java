@@ -22,15 +22,15 @@ public class ArrayListNew<T> implements MyArrayList<T>{
     @Override
     public void add(T t) {
         if (array.length == size){
-            this.array = growAndCopy(array);
+            this.array = growAndCopy(array, 0);
         }
         array[size] = t;
         size++;
     }
 
     //Увеличиваем массив, если закончился
-    private T[] growAndCopy(T[] original){
-        T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE];
+    private T[] growAndCopy(T[] original, int number){
+        T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE + number];
         for (int i = 0; i < original.length ; i++){
             newArray[i] = original[i];
         }
@@ -114,7 +114,16 @@ public class ArrayListNew<T> implements MyArrayList<T>{
 
     @Override
     public void concat(Collection<T> newList) {
-
+        if (newList.size() > array.length) {
+            this.array = growAndCopy(array, newList.size());
+            for (T t : newList) {
+                add(t);
+            }
+            return;
+        }
+        for (T t : newList) {
+            add(t);
+        }
     }
 
     @Override
