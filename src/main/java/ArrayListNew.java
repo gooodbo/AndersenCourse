@@ -49,6 +49,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
             array = (T[]) new Object[newArray.length - 1];
             System.arraycopy(newArray, 0, array, 0, index);
             System.arraycopy(newArray, index + 1, array, index, newArray.length - index - 1);
+            size--;
         } catch (ClassCastException e) {
             e.printStackTrace();
         }

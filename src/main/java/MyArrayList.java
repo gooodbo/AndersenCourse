@@ -16,8 +16,7 @@ public interface MyArrayList<T> {
 
     boolean delete(Object o);
 
-    boolean deleteAll(Collection<T> c)
-            ;
+    boolean deleteAll(Collection<T> c);
 
     T get(int index);
 
