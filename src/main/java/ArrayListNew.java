@@ -18,20 +18,10 @@ public class ArrayListNew<T> implements MyArrayList<T>{
 
     @Override
     public void add(T t) {
-        if (array.length == size){
-            this.array = growAndCopy(array);
-        }
-        array[size] = t;
-        size++;
+
     }
 
-    private T[] growAndCopy(T[] original){
-        T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE];
-        for (int i = 0; i < original.length ; i++){
-            newArray[i] = original[i];
-        }
-        return newArray;
-    }
+
 
     @Override
     public void add(T t, int index) {
