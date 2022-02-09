@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 
-public class ArrayListNew<T> implements MyArrayList<T> {
+public class ArrayListNew<T> implements MyArrayList<T>{
 
     private static final int DEFAULT_SIZE = 5;
 
@@ -28,9 +28,6 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         size++;
     }
 
-
-    @Override
-    public void add(T t, int index) {
     //Увеличиваем массив, если закончился
     private T[] growAndCopy(T[] original){
         T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE];
@@ -62,10 +59,6 @@ public class ArrayListNew<T> implements MyArrayList<T> {
 
     //Вставляем элемент по индексу
     @Override
-
-    public void addAll(Collection<T> c) {
-
-
     public void add(T t, int index) {
         if (index > size) throw new ArrayIndexOutOfBoundsException();
         if (array.length == size){
@@ -74,7 +67,6 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         }
         insertByIndex(index, array, t);
         size++;
-
     }
     //Обязательное условие работы алгоритма что компаратор возвращает 1 если (о1 > o2)
     // и -1 если (o1 < o2) , при o1 == o2 возвращаем 0
@@ -127,25 +119,6 @@ public class ArrayListNew<T> implements MyArrayList<T> {
 
     @Override
     public boolean delete(int index) {
-        try {
-            T[] newArray = array;
-            array = (T[]) new Object[newArray.length - 1];
-            System.arraycopy(newArray, 0, array, 0, index);
-            System.arraycopy(newArray, index + 1, array, index, newArray.length - index - 1);
-            size--;
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-        }
-        return true;
-    }
-
-    @Override
-    public boolean delete(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteAll(Collection<T> c) {
         return false;
     }
 
