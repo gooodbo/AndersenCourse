@@ -112,6 +112,7 @@ public class ArrayListNew<T> implements MyArrayList<T>{
         }
     }
 
+    //Итерируемся по переданной коллекции и добавляем элеметы в массив. Если масив переполнен , слздаем новый и копируем туда старый.
     @Override
     public void concat(Collection<T> newList) {
         if (newList.size() > array.length) {
@@ -128,6 +129,22 @@ public class ArrayListNew<T> implements MyArrayList<T>{
         }
     }
 
+
+    public void concat(ArrayListNew<T> newList) {
+        if (newList.size() > array.length) {
+            this.array = growAndCopy(array, newList.size());
+            for (int i = 0; i < newList.size; i++) {
+                array[size] = newList.get(i);
+                size++;
+            }
+            return;
+        }
+        for (int i = 0; i < newList.size; i++) {
+            array[size] = newList.get(i);
+            size++;
+        }
+    }
+
     @Override
     public boolean delete(int index) {
         return false;
@@ -135,7 +152,7 @@ public class ArrayListNew<T> implements MyArrayList<T>{
 
     @Override
     public T get(int index) {
-        return null;
+        return array[index];
     }
 
 
