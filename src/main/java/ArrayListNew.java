@@ -3,7 +3,6 @@ import java.util.*;
 
 public class ArrayListNew<T> implements MyArrayList<T> {
 
-
     private static final int DEFAULT_SIZE = 5;
 
     private T[] array;
@@ -122,6 +121,8 @@ public class ArrayListNew<T> implements MyArrayList<T> {
 
     }
 
+    //создаём новый массив на 1 элемент меньше в главную переменную, а данные из неё в новую переносим
+    //копируем данные до индекса и после него в пустой массив
     @Override
     public boolean delete(int index) {
         if (index > size) throw new ArrayIndexOutOfBoundsException();
@@ -137,10 +138,9 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         return true;
     }
 
+    //проходим по массиву и ищем наш элемент и отправляем его в метод delete
     @Override
     public boolean delete(Object o) {
-        // Iterator<T> iter = Arrays.stream(array).iterator();
-        // int index = 0;
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] != null && array[i].equals(o)) {
                 delete(i);
@@ -151,6 +151,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         return true;
     }
 
+    //тут тоже все просто, каждый элемент коллекции отправляем в delete(o) и там он удаляет объекты, если они есть
     @Override
     public boolean deleteAll(Collection<T> c) {
         for (T t : c) {
@@ -168,6 +169,27 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    @Override
+    public int indexOf(Object o) {
+        return 0;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] != null && array[i].equals(o)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public String toString() {

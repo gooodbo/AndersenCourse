@@ -22,5 +22,10 @@ public interface MyArrayList<T> {
 
     int size();
 
+    void clear();
+
+    int indexOf(Object o);
+
+    boolean contains(Object c);
 
 }
