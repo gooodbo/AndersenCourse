@@ -1,10 +1,8 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
+import java.util.*;
 
-public class ArrayListNew<T> implements MyArrayList<T>{
+public class ArrayListNew<T> implements MyArrayList<T> {
+
 
     private static final int DEFAULT_SIZE = 5;
 
@@ -21,7 +19,7 @@ public class ArrayListNew<T> implements MyArrayList<T>{
     //Добавляем в конец списка
     @Override
     public void add(T t) {
-        if (array.length == size){
+        if (array.length == size) {
             this.array = growAndCopy(array);
         }
         array[size] = t;
@@ -29,30 +27,31 @@ public class ArrayListNew<T> implements MyArrayList<T>{
     }
 
     //Увеличиваем массив, если закончился
-    private T[] growAndCopy(T[] original){
+    private T[] growAndCopy(T[] original) {
         T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE];
-        for (int i = 0; i < original.length ; i++){
+        for (int i = 0; i < original.length; i++) {
             newArray[i] = original[i];
         }
         return newArray;
     }
+
     //Увеличиваем массив если закончился и добавляем новый элемент
-    private T[] growAndCopyAndPaste(T[] original, int index, T t){
+    private T[] growAndCopyAndPaste(T[] original, int index, T t) {
         T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE];
-        for (int i = 0; i < index; i++){
+        for (int i = 0; i < index; i++) {
             newArray[i] = original[i];
         }
         newArray[index] = t;
-        for (int i = index + 1; i < size + 1; i++){
-            newArray[i] = original[i-1];
+        for (int i = index + 1; i < size + 1; i++) {
+            newArray[i] = original[i - 1];
         }
         return newArray;
     }
 
     //Если массив еще не закончился просто вставляем элемент
-    private void insertByIndex(int index, T[] array, T t){
-        for (int i = size ; i > index; i--){
-            array[i] = array[i-1];
+    private void insertByIndex(int index, T[] array, T t) {
+        for (int i = size; i > index; i--) {
+            array[i] = array[i - 1];
         }
         array[index] = t;
     }
@@ -61,7 +60,7 @@ public class ArrayListNew<T> implements MyArrayList<T>{
     @Override
     public void add(T t, int index) {
         if (index > size) throw new ArrayIndexOutOfBoundsException();
-        if (array.length == size){
+        if (array.length == size) {
             this.array = growAndCopyAndPaste(array, index, t);
             return;
         }
@@ -125,6 +124,7 @@ public class ArrayListNew<T> implements MyArrayList<T>{
 
     @Override
     public boolean delete(int index) {
+        if (index > size) throw new ArrayIndexOutOfBoundsException();
         try {
             T[] newArray = array;
             array = (T[]) new Object[newArray.length - 1];
@@ -139,12 +139,24 @@ public class ArrayListNew<T> implements MyArrayList<T>{
 
     @Override
     public boolean delete(Object o) {
-        return false;
+        // Iterator<T> iter = Arrays.stream(array).iterator();
+        // int index = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] != null && array[i].equals(o)) {
+                delete(i);
+                break;
+            }
+        }
+
+        return true;
     }
 
     @Override
     public boolean deleteAll(Collection<T> c) {
-        return false;
+        for (T t : c) {
+            delete(t);
+        }
+        return true;
     }
 
     @Override
@@ -158,11 +170,11 @@ public class ArrayListNew<T> implements MyArrayList<T>{
         return size;
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         if (size == 0) return "[]";
         sb.append("[");
-        for (int i = 0; i < size - 1; i++){
+        for (int i = 0; i < size - 1; i++) {
             sb.append(array[i].toString() + ", ");
         }
         sb.append(array[size - 1] + "]");
