@@ -18,17 +18,16 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //Добавляем в конец списка
     @Override
     public void add(T t) {
-        if (array.length == size) {
-            this.array = growAndCopy(array);
-        }
+        if (array.length == size){
+            this.array = growAndCopy(array, 0);
         array[size] = t;
         size++;
     }
 
     //Увеличиваем массив, если закончился
-    private T[] growAndCopy(T[] original) {
-        T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE];
-        for (int i = 0; i < original.length; i++) {
+    private T[] growAndCopy(T[] original, int number){
+        T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE + number];
+        for (int i = 0; i < original.length ; i++){
             newArray[i] = original[i];
         }
         return newArray;
@@ -116,9 +115,37 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         }
     }
 
+    //Итерируемся по переданной коллекции и добавляем элеметы в массив. Если масив переполнен , слздаем новый и копируем туда старый.
     @Override
     public void concat(Collection<T> newList) {
+        if (newList.size() > array.length) {
+            this.array = growAndCopy(array, newList.size());
+            for (T t : newList) {
+                array[size] = t;
+                size++;
+            }
+            return;
+        }
+        for (T t : newList) {
+            array[size] = t;
+            size++;
+        }
+    }
 
+
+    public void concat(ArrayListNew<T> newList) {
+        if (newList.size() > array.length) {
+            this.array = growAndCopy(array, newList.size());
+            for (int i = 0; i < newList.size; i++) {
+                array[size] = newList.get(i);
+                size++;
+            }
+            return;
+        }
+        for (int i = 0; i < newList.size; i++) {
+            array[size] = newList.get(i);
+            size++;
+        }
     }
 
     //создаём новый массив на 1 элемент меньше в главную переменную, а данные из неё в новую переносим
@@ -162,7 +189,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        return array[index];
     }
 
 
