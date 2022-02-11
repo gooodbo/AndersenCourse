@@ -20,9 +20,9 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     public void add(T t) {
         if (array.length == size) {
             this.array = growAndCopy(array, 0);
-            array[size] = t;
-            size++;
         }
+          array[size] = t;
+          size++;
     }
 
     //Увеличиваем массив, если закончился
