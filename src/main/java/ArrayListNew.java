@@ -18,10 +18,11 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //Добавляем в конец списка
     @Override
     public void add(T t) {
-        if (array.length == size){
+        if (array.length == size) {
             this.array = growAndCopy(array, 0);
-        array[size] = t;
-        size++;
+            array[size] = t;
+            size++;
+        }
     }
 
     //Увеличиваем массив, если закончился
