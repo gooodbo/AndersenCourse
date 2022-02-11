@@ -209,7 +209,8 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         size = 0;
     }
 
-    //This method goes through the list and returns the index of the imparted element or -1 if there wasn't such
+    //This method goes through the list and returns the index of the impacted
+    // element or -1 if there wasn't such element
     @Override
     public int indexOf(Object o) {
         Object[] data = array;
