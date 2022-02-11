@@ -209,7 +209,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         size = 0;
     }
 
-    //This method goes through the list and returns the index of the imparted element or -1 if there was't such
+    //This method goes through the list and returns the index of the imparted element or -1 if there wasn't such
     @Override
     public int indexOf(Object o) {
         Object[] data = array;
@@ -229,7 +229,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         return -1;
     }
 
-    // Return true if List is empty and false if doesn't
+    // Return true if List is empty and false if doesn't empty
     @Override
     public boolean isEmpty() {
         return size == 0;
