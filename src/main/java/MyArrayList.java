@@ -28,6 +28,4 @@ public interface MyArrayList<T> {
 
     boolean contains(Object c);
 
-    boolean isEmpty();
-
 }

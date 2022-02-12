@@ -18,17 +18,16 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //Добавляем в конец списка
     @Override
     public void add(T t) {
-        if (array.length == size) {
+        if (array.length == size){
             this.array = growAndCopy(array, 0);
-            array[size] = t;
-            size++;
-        }
+        array[size] = t;
+        size++;
     }
 
     //Увеличиваем массив, если закончился
-    private T[] growAndCopy(T[] original, int number) {
+    private T[] growAndCopy(T[] original, int number){
         T[] newArray = (T[]) new Object[array.length + DEFAULT_SIZE + number];
-        for (int i = 0; i < original.length; i++) {
+        for (int i = 0; i < original.length ; i++){
             newArray[i] = original[i];
         }
         return newArray;
@@ -199,41 +198,14 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         return size;
     }
 
-    //Removes all elements from list
     @Override
     public void clear() {
-        Object[] data = array;
-        for (int i = 0; i < size; i++) {
-            data[i] = null;
-        }
-        size = 0;
+
     }
 
-    //This method goes through the list and returns the index of the impacted
-    // element or -1 if there wasn't such element
     @Override
     public int indexOf(Object o) {
-        Object[] data = array;
-        if (o == null) {
-            for (int i = 0; i < size; i++) {
-                if (data[i] == null) {
-                    return i;
-                }
-            }
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (o.equals(data[i])) {
-                    return i;
-                }
-            }
-        }
-        return -1;
-    }
-
-    // Return true if List is empty and false if doesn't empty
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
+        return 0;
     }
 
     @Override
