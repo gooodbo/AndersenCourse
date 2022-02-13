@@ -153,7 +153,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //копируем данные до индекса и после него в пустой массив
     @Override
     public boolean delete(int index) {
-        if (index > size) throw new ArrayIndexOutOfBoundsException();
+        if (index >= size) throw new ArrayIndexOutOfBoundsException();
         try {
             T[] newArray = array;
             array = (T[]) new Object[newArray.length - 1];
@@ -172,7 +172,6 @@ public class ArrayListNew<T> implements MyArrayList<T> {
         for (int i = 0; i < array.length - 1; i++) {
             if (array[i] != null && array[i].equals(o)) {
                 delete(i);
-                break;
             }
         }
 
@@ -190,6 +189,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
 
     @Override
     public T get(int index) {
+        if(index >= size) throw new ArrayIndexOutOfBoundsException();
         return array[index];
     }
 
