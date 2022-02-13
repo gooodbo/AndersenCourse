@@ -58,7 +58,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //Вставляем элемент по индексу
     @Override
     public void add(T t, int index) {
-        if (index > size) throw new ArrayIndexOutOfBoundsException();
+        if (index > size || index < 0 ) throw new ArrayIndexOutOfBoundsException();
         if (array.length == size) {
             this.array = growAndCopyAndPaste(array, index, t);
             return;
@@ -154,7 +154,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //копируем данные до индекса и после него в пустой массив
     @Override
     public boolean delete(int index) {
-        if (index >= size) throw new ArrayIndexOutOfBoundsException();
+        if (index >= size || index < 0 ) throw new ArrayIndexOutOfBoundsException();
         try {
             T[] newArray = array;
             array = (T[]) new Object[newArray.length - 1];

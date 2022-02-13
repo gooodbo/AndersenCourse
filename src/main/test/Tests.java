@@ -26,6 +26,11 @@ public class Tests extends Assert {
         myArrayList.get(myArrayList.size());
     }
 
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void getOutOfBound2(){
+        myArrayList.get(-1);
+    }
+
     @Test
     public void SortAndToString(){
         originalArrayList.sort(Integer::compareTo);
