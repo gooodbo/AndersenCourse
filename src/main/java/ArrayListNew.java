@@ -128,6 +128,7 @@ public class ArrayListNew<T> implements MyArrayList<T> {
             return;
         }
         for (T t : newList) {
+
             array[size] = t;
             size++;
         }
@@ -169,9 +170,10 @@ public class ArrayListNew<T> implements MyArrayList<T> {
     //проходим по массиву и ищем наш элемент и отправляем его в метод delete
     @Override
     public boolean delete(Object o) {
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i] != null && array[i].equals(o)) {
                 delete(i);
+                break;
             }
         }
 
