@@ -21,6 +21,7 @@ public class ObserveredArray implements Observer{
     @Override
     public void addListner(Listner listner) {
         this.listnerArrayList.add(listner);
+
     }
 
     @Override
