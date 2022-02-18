@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+package task1;
+
 import java.util.*;
 
 public class ArrayListNew<T> implements MyArrayList<T> {
