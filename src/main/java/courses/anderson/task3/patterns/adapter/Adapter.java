@@ -8,11 +8,11 @@ public class Adapter {
         System.out.println("Initial " + europeanCharger.type() + " charger : " + europeanCharger.voltage());
         System.out.println("Initial " + americanCharger.type() + " charger : " + americanCharger.voltage());
 
-        OutletAdapter americanOutletAdapter = new AmericanOutletAdapter();
-        OutletAdapter europeanOutletAdapter = new EuropeanOutletAdapter();
+        ChargerAdapter americanChargerAdapter = new AmericanChargerAdapter();
+        ChargerAdapter europeanChargerAdapter = new EuropeanChargerAdapter();
 
-        Charger adaptedEuropeanCharger = americanOutletAdapter.adapt(europeanCharger);
-        Charger adaptedAmericanCharger = europeanOutletAdapter.adapt(americanCharger);
+        Charger adaptedEuropeanCharger = americanChargerAdapter.adapt(europeanCharger);
+        Charger adaptedAmericanCharger = europeanChargerAdapter.adapt(americanCharger);
 
         System.out.println("American adapted " + europeanCharger.type() + " charger : "  + adaptedEuropeanCharger.voltage());
         System.out.println("European adapted " + americanCharger.type() + " charger : "  + adaptedAmericanCharger.voltage());

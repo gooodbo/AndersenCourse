@@ -1,6 +1,6 @@
 package courses.anderson.task3.patterns.adapter;
 
-interface OutletAdapter {
+interface ChargerAdapter {
     Charger adapt(Charger charger);
 }
 
