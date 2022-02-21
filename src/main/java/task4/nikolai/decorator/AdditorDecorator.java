@@ -11,7 +11,7 @@ public class AdditorDecorator implements Additor{
 
     @Override
     public int sum(int a, int b) {
-        return a + b;
+         return additor.sum(a , b);
     }
 
 

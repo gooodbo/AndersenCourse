@@ -16,6 +16,7 @@ public class SnowboardBuilder implements BoardBuilder<Snowboard> {
 
     @Override
     public void setNumberOfWheels(int i) {
+        throw new UnsupportedOperationException();
     }
 
     @Override
