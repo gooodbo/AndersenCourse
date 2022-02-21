@@ -1,11 +1,10 @@
-package task4.nikolai.proxy.builders;
+package task4.nikolai.proxy_builder.builders;
 
-import task4.nikolai.proxy.decks.SkateBoard;
+import task4.nikolai.proxy_builder.decks.Snowboard;
 
-public class SkateBuilder implements BoardBuilder<SkateBoard> {
+public class SnowboardBuilder implements BoardBuilder<Snowboard> {
 
     private String material;
-    private int wheels;
     private int inchLong;
     private int width;
 
@@ -17,7 +16,7 @@ public class SkateBuilder implements BoardBuilder<SkateBoard> {
 
     @Override
     public void setNumberOfWheels(int i) {
-        this.wheels = i;
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -30,8 +29,8 @@ public class SkateBuilder implements BoardBuilder<SkateBoard> {
         this.width = i;
     }
 
-    public SkateBoard getResult(){
-        return new SkateBoard(material,wheels,inchLong,width);
+    public Snowboard getResult(){
+        return new Snowboard(material,inchLong,width);
     }
 
 

@@ -1,23 +1,22 @@
-package task4.nikolai.proxy.decks;
+package task4.nikolai.proxy_builder.decks;
 
 
 //Создаваемые объекты
-public class SkateBoard{
+public class Snowboard{
 
     private String material;
-    private int nuberOfweels;
     private int inchLong;
     private int inchWidth;
 
-    public SkateBoard(String material, int nuberOfweels, int inchLong, int inchWidth) {
+
+    public Snowboard(String material, int inchLong, int inchWidth) {
         this.material = material;
-        this.nuberOfweels = nuberOfweels;
         this.inchLong = inchLong;
         this.inchWidth = inchWidth;
     }
 
     public void doTrick(){
-        System.out.println("flip");
+        System.out.println("*sounds of doing trick");
     }
 
     public String getMaterial() {
@@ -26,14 +25,6 @@ public class SkateBoard{
 
     public void setMaterial(String material) {
         this.material = material;
-    }
-
-    public int getNuberOfweels() {
-        return nuberOfweels;
-    }
-
-    public void setNuberOfweels(int nuberOfweels) {
-        this.nuberOfweels = nuberOfweels;
     }
 
     public int getInchLong() {

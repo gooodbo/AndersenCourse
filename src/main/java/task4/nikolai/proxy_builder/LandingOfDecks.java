@@ -1,7 +1,7 @@
-package task4.nikolai.proxy;
+package task4.nikolai.proxy_builder;
 
-import task4.nikolai.proxy.decks.SkateBoard;
-import task4.nikolai.proxy.decks.Snowboard;
+import task4.nikolai.proxy_builder.decks.SkateBoard;
+import task4.nikolai.proxy_builder.decks.Snowboard;
 
 import java.util.ArrayList;
 import java.util.HashMap;

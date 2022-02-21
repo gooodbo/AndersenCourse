@@ -1,4 +1,4 @@
-package task4.nikolai.proxy.builders;
+package task4.nikolai.proxy_builder.builders;
 
 
 //Директор создателя досок

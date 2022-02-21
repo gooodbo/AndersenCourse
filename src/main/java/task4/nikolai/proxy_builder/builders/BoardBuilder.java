@@ -1,4 +1,4 @@
-package task4.nikolai.proxy.builders;
+package task4.nikolai.proxy_builder.builders;
 
 //Интерфейс строителя досок
 public interface BoardBuilder<T> {

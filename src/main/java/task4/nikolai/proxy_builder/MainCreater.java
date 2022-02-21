@@ -1,10 +1,10 @@
-package task4.nikolai.proxy;
+package task4.nikolai.proxy_builder;
 
-import task4.nikolai.proxy.builders.Director;
-import task4.nikolai.proxy.builders.SkateBuilder;
-import task4.nikolai.proxy.builders.SnowboardBuilder;
-import task4.nikolai.proxy.decks.SkateBoard;
-import task4.nikolai.proxy.decks.Snowboard;
+import task4.nikolai.proxy_builder.builders.Director;
+import task4.nikolai.proxy_builder.builders.SkateBuilder;
+import task4.nikolai.proxy_builder.builders.SnowboardBuilder;
+import task4.nikolai.proxy_builder.decks.SkateBoard;
+import task4.nikolai.proxy_builder.decks.Snowboard;
 
 
 //Создатель досок, для создания объектов был использован паттерн строитель

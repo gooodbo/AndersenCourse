@@ -1,15 +1,12 @@
-package proxytests;
+package proxy_buildertests;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import task4.nikolai.proxy.BoardsCreater;
-import task4.nikolai.proxy.LandingOfDecks;
-import task4.nikolai.proxy.decks.SkateBoard;
-import task4.nikolai.proxy.decks.Snowboard;
-
-import java.util.ArrayList;
-import java.util.List;
+import task4.nikolai.proxy_builder.BoardsCreater;
+import task4.nikolai.proxy_builder.LandingOfDecks;
+import task4.nikolai.proxy_builder.decks.SkateBoard;
+import task4.nikolai.proxy_builder.decks.Snowboard;
 
 public class ProxyTest extends Assert {
 
