@@ -6,7 +6,7 @@ import task1.ArrayListNew;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tests extends Assert {
+public class ArrayTests extends Assert {
 
     private ArrayList<Integer> originalArrayList = new ArrayList<>();
     private ArrayListNew<Integer> myArrayList = new ArrayListNew<>();
